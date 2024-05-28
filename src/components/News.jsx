@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import moment from 'moment';
-import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
+import { Select, Typography, Row, Col, Card } from 'antd';
 
 import { useGetCurrencyNewsQuery } from '../services/currencyNewsAPI';
 
