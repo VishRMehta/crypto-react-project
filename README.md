@@ -1,3 +1,8 @@
+# Demo
+![SS1](https://github.com/VishRMehta/crypto-react-project/blob/master/Screenshot%202024-05-28%20at%2017.28.05.png)
+![SS2](https://github.com/VishRMehta/crypto-react-project/blob/master/Screenshot%202024-05-28%20at%2017.28.14.png)
+![SS3](https://github.com/VishRMehta/crypto-react-project/blob/master/Screenshot%202024-05-28%20at%2017.28.35.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
