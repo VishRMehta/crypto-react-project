@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Input } from 'antd';
+import { Card, Row, Col, Input, Spin } from 'antd';
 import millify from 'millify';
 
 import { useGetCurrencyQuery } from '../services/currencyAPI';
@@ -19,7 +19,9 @@ const Cryptocurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [data, search]);
 
-  if (isFetching) return 'Loading Your Money Making News!...';
+  if (isFetching) {
+    return <Spin />;
+  }
 
   return (
     <>

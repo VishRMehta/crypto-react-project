@@ -2,7 +2,7 @@ import React from 'react'
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
-import { Col, Row, Typography, Select } from 'antd';
+import { Col, Row, Typography, Spin } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined,  CheckOutlined, NumberOutlined, ThunderboltOutlined} from '@ant-design/icons';
 import { useGetDetailsQuery } from '../services/currencyAPI';
 
@@ -11,9 +11,15 @@ const CryptoDetails = () => {
   const { coinId } = useParams();
   const { data, isFetching } = useGetDetailsQuery(coinId);
   const cryptoDetails = data?.data?.coin;
-  console.log(data);
-  console.log(cryptoDetails.name);
-  console.log(cryptoDetails.description);
+  
+
+  if (isFetching) {
+    return <Spin />;
+  }
+
+  if (!cryptoDetails) {
+    return <Typography.Text>No data available.</Typography.Text>;
+  }
 
   const stats = [
     { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
@@ -93,10 +99,7 @@ const CryptoDetails = () => {
       </Col>
 
     </Col>
-
-    // <div>
-    //   <h1>Crypto Details</h1>
-    // </div>
+   
   )
 }
 

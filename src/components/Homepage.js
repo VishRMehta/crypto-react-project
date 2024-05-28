@@ -1,8 +1,7 @@
 import React from 'react'
-import { Typography, Row, Col, Statistic } from 'antd'
+import { Typography, Row, Col, Statistic, Spin } from 'antd'
 import { Link } from 'react-router-dom'
 import { useGetCurrencyQuery } from '../services/currencyAPI'
-import { Title } from 'chart.js'
 import CryptoCurrencies from './Cryptocurrencies'
 import News from './News'
 
@@ -10,7 +9,9 @@ const Homepage = () => {
 
   const { data, isFetching } = useGetCurrencyQuery(15);
  
-  if (isFetching) return 'Loading...';
+  if (isFetching) {
+    return <Spin />;
+  }
   const globalStats = data?.data?.stats;
 
   return (
